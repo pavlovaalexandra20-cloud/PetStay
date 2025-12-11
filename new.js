@@ -142,3 +142,8 @@ document.getElementById('userForm').addEventListener('submit', e => {
   e.target.reset();
   document.getElementById('userPopup').style.display = 'none';
 });
+
+document.getElementById("burger").addEventListener("click", () => {
+    document.getElementById("mobileNav").classList.toggle("active");
+});
+

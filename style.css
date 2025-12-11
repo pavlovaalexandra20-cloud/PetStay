@@ -506,3 +506,63 @@ h1, h2 {
 .emoji-icon {
     font-size: 26px;
 }
+
+
+/* Мобилно hamburger бутон */
+.mobile-menu-btn {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Мобилно меню */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  width: 100%;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e6e9ee;
+}
+
+.mobile-menu a {
+  padding: 10px 0;
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+/* Скрият се централното меню и CTA при мобилно */
+@media(max-width:900px){
+  .center-nav,
+  .cta {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .topbar {
+    gap: 10px;
+  }
+}
+
+/* FOOTER СТАВА СТАТИЧЕН ДОЛУ */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
