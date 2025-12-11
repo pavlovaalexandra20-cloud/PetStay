@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Резервация — PetStay</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo"><img src="logo PetStay.png" alt="logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px"></div>
+      <div><div style="font-weight:700">PetStay</div><div class="muted" style="font-size:13px">Грижи се за любимеца си с доверие</div></div>
+    </div>
+
+    <nav class="center-nav">
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="findSitter.html">Търси гледачи</a></li>
+        <li><a href="userHome.html">Моите резервации</a></li>
+      </ul>
+    </nav>
+
+    <div class="cta" id="navRole"></div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section">
+    <h1>Запази услуга</h1>
+    <p class="muted">Попълни формата по-долу за да изпратиш заявка към избрания гледач.</p>
+  </section>
+
+  <section class="section">
+    <div id="reservationSitterInfo"></div>
+
+    <form id="reservationForm" class="sitter-form" style="max-width:600px;margin-top:14px;">
+      <label>Имейл на потребителя (за контакт)</label>
+      <input id="resUserEmail" type="email" placeholder="Имейл" class="rounded-input" required>
+
+      <label>Избери животно</label>
+      <select id="resAnimal" class="rounded-input" required>
+        <option value="">-- избери --</option>
+        <option value="dog">Куче</option>
+        <option value="cat">Котка</option>
+        <option value="rabbit">Заек</option>
+        <option value="other">Друго</option>
+      </select>
+
+      <label>Дата</label>
+      <input id="resDate" type="date" class="rounded-input" required>
+
+      <label>Услуга</label>
+      <select id="resService" class="rounded-input" required>
+        <option value="">-- избери --</option>
+        <option value="walking">Разходка</option>
+        <option value="stay_sitter_home">Престой при гледача</option>
+        <option value="stay_user_home">Престой в дома + грижа</option>
+      </select>
+
+      <label>Продължителност</label>
+      <select id="resDuration" class="rounded-input" required>
+        <option value="">-- избери --</option>
+        <option value="1h">1 час</option>
+        <option value="2h">2 часа</option>
+        <option value="more">Повече</option>
+      </select>
+
+      <label>Съобщение към гледача (по избор)</label>
+      <textarea id="resNote" rows="3" class="rounded-input" placeholder="Напиши съобщение"></textarea>
+
+      <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+        <button type="submit" class="btn">Изпрати заявка</button>
+        <a href="findSitter.html" class="btn secondary">Откажи</a>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer>© 2025 PetStay. Всички права запазени.</footer>
+
+<script src="new.js"></script>
+<script>
+  initNavRoleButtons();
+  initReservationPage();
+</script>
+</body>
+</html>
