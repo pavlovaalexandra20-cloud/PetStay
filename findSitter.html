@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Търси гледач — PetStay</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="topbar">
+    
+    <div class="brand">
+      <div class="logo">
+        <img src="logo PetStay.png" alt="PetStay Logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
+      </div>
+      <div>
+        <div style="font-weight:700">PetStay</div>
+        <div class="muted" style="font-size:13px">Грижи се за любимеца си с доверие</div>
+      </div>
+    </div>
+
+    <nav class="center-nav">
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="findSitter.html">Търси гледачи</a></li>
+        <li><a href="becomeSitter.html">Стани гледач</a></li>
+        <li><a href="information.html">Информация</a></li>
+      </ul>
+    </nav>
+
+    <div class="cta">
+      <a href="login.html" class="btn secondary">Вход</a>
+      <a href="registration.html" class="btn">Регистрация</a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ---------- ЛЕЙАУТ ---------- -->
+<div class="finder-layout">
+
+    <!-- ЛЯВА КОЛОНА: Филтри + списък -->
+    <div class="finder-left">
+
+        <!-- ФИЛТРИ -->
+        <div class="checkbox-group">
+
+            <label style="font-weight:600; font-size:18px;">Филтри</label>
+
+            <label class="checkbox-wrapper" style="margin-top:10px;">
+                <span>Животно:</span>
+                <select id="filterAnimal" class="rounded-input" style="flex:1;">
+                    <option value="">Всички</option>
+                    <option value="куче">Куче</option>
+                    <option value="котка">Котка</option>
+                    <option value="птица">Птица</option>
+                    <option value="гризач">Гризач</option>
+                    <option value="зайче">Зайче</option>
+                    <option value="риби">Риби</option>
+                    <option value="влечуго">Влечуго</option>
+                    <option value="тарариумно">Терариумно животно</option>
+                    <option value="екзотично">Екзотично животно</option>
+                </select>
+            </label>
+
+            <label class="checkbox-wrapper">
+                <span>Цена:</span>
+                <select id="filterPrice" class="rounded-input" style="flex:1;">
+                    <option value="">Всички</option>
+                    <option value="15">До 15 лв</option>
+                    <option value="18">До 18 лв</option>
+                    <option value="20">До 20 лв</option>
+                    <option value="25">До 25 лв</option>
+                </select>
+            </label>
+
+        </div>
+
+        <!-- СПИСЪК С ГЛЕДАЧИ -->
+        <div id="sitterList">
+
+            <div class="sitter-card" data-animal="куче,котка" data-price="18">
+                <img src="img/woman1.jpg" alt="">
+                <div class="sitter-info">
+                    <h3>Мария Иванова</h3>
+                    <p>Гледач за кучета и котки · Свищов</p>
+                    <div class="price">18 лв/ден</div>
+                </div>
+            </div>
+
+            <div class="sitter-card" data-animal="куче" data-price="15">
+                <img src="img/man1.jpg" alt="">
+                <div class="sitter-info">
+                    <h3>Петър Петров</h3>
+                    <p>Гледач за кучета · Свищов</p>
+                    <div class="price">15 лв/ден</div>
+                </div>
+            </div>
+
+            <div class="sitter-card" data-animal="котка,гризач" data-price="12">
+                <img src="img/woman2.jpg" alt="">
+                <div class="sitter-info">
+                    <h3>Светла Димитрова</h3>
+                    <p>Котки и гризачи · Свищов</p>
+                    <div class="price">12 лв/ден</div>
+                </div>
+            </div>
+
+            <div class="sitter-card" data-animal="куче,птица" data-price="20">
+                <img src="img/man2.jpg" alt="">
+                <div class="sitter-info">
+                    <h3>Даниел Георгиев</h3>
+                    <p>Кучета и папагали · Свищов</p>
+                    <div class="price">20 лв/ден</div>
+                </div>
+            </div>
+
+            <div class="sitter-card" data-animal="екзотично" data-price="25">
+                <img src="img/woman3.jpg" alt="">
+                <div class="sitter-info">
+                    <h3>Надежда Тодорова</h3>
+                    <p>Екзотични животни · Свищов</p>
+                    <div class="price">25 лв/ден</div>
+                </div>
+            </div>
+
+            <div class="sitter-card" data-animal="куче" data-price="22">
+                <img src="img/man3.jpg" alt="">
+                <div class="sitter-info">
+                    <h3>Иво Михайлов</h3>
+                    <p>Гледач на големи породи кучета · Свищов</p>
+                    <div class="price">22 лв/ден</div>
+                </div>
+            </div>
+
+            <div class="sitter-card" data-animal="котка,влечуго" data-price="17">
+                <img src="img/woman4.jpg" alt="">
+                <div class="sitter-info">
+                    <h3>Гергана Василева</h3>
+                    <p>Котки и терариумни · Свищов</p>
+                    <div class="price">17 лв/ден</div>
+                </div>
+            </div>
+
+            <div class="sitter-card" data-animal="куче,гризач" data-price="16">
+                <img src="img/man4.jpg" alt="">
+                <div class="sitter-info">
+                    <h3>Александър Колев</h3>
+                    <p>Кучета и дребни животни · Свищов</p>
+                    <div class="price">16 лв/ден</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ДЯСНА КОЛОНА: КАРТА -->
+    <div class="finder-right">
+        <iframe
+            width="100%"
+            height="100%"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5743.672222837243!2d25.3436702!3d43.6221099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40ae9fd4127acd2b%3A0xede4b9a2e9fe8d13!2z0KHRgtGC0YDQvtGB0Lgg0KHRgtGA0L7RgdGC0LDQuSA!5e0!3m2!1sbg!2sbg!4v1734700000001">
+        </iframe>
+    </div>
+
+</div>
+
+<footer>
+  © 2025 PetStay. Всички права запазени.
+</footer>
+
+<script>
+/* --- Филтриране --- */
+const animalSelect = document.getElementById("filterAnimal");
+const priceSelect = document.getElementById("filterPrice");
+const cards = document.querySelectorAll(".sitter-card");
+
+function applyFilters() {
+    const a = animalSelect.value;
+    const p = priceSelect.value;
+
+    cards.forEach(card => {
+        const animals = card.dataset.animal;
+        const price = parseInt(card.dataset.price);
+
+        let show = true;
+
+        if (a && !animals.includes(a)) show = false;
+        if (p && price > parseInt(p)) show = false;
+
+        card.style.display = show ? "flex" : "none";
+    });
+}
+
+animalSelect.addEventListener("change", applyFilters);
+priceSelect.addEventListener("change", applyFilters);
+</script>
+
+</body>
+</html>

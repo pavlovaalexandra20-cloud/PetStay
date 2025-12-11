@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Следи разходка — PetStay</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo"><img src="logo PetStay.png" alt="logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px"></div>
+      <div><div style="font-weight:700">PetStay</div><div class="muted" style="font-size:13px">Грижи се за любимеца си с доверие</div></div>
+    </div>
+
+    <nav class="center-nav">
+      <ul>
+        <li><a href="userHome.html">Начало</a></li>
+        <li><a href="findSitter.html">Търси гледачи</a></li>
+        <li><a href="userHome.html#myReservations">Моите резервации</a></li>
+      </ul>
+    </nav>
+
+    <div class="cta" id="navRole"></div>
+  </div>
+</header>
+
+<main class="container" style="display:flex;flex-direction:column;gap:12px;">
+  <section>
+    <h2>Следи разходка в реално време</h2>
+    <p class="muted">Тук ще видиш движението на служителя и любимеца в реално време (симулация).</p>
+  </section>
+
+  <section style="display:flex;gap:12px;flex-direction:column;">
+    <div id="trackingInfo" class="card" style="padding:12px;"></div>
+    <div id="trackingMap" style="height:450px;border-radius:12px;overflow:hidden"></div>
+  </section>
+</main>
+
+<footer>© 2025 PetStay. Всички права запазени.</footer>
+
+<!-- Leaflet script -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="new.js"></script>
+<script>
+  initNavRoleButtons();
+  initTrackingPage();
+</script>
+</body>
+</html>

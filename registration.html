@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Регистрация — PetStay</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER / ТОП ЛЕНТА -->
+<header>
+  <div class="topbar">
+    
+    <!-- Лого + Текст -->
+    <div class="brand">
+      <div class="logo">
+        <img src="logo PetStay.png" alt="PetStay Logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
+      </div>
+      <div>
+        <div style="font-weight:700">PetStay</div>
+        <div class="muted" style="font-size:13px">Грижи се за любимеца си с доверие</div>
+      </div>
+    </div>
+
+    <nav class="center-nav">
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="findSitter.html">Търси гледачи</a></li>
+        <li><a href="becomeSitter.html">Стани гледач</a></li>
+        <li><a href="information.html">Информация</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container" style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:20px;">
+  <h1 style="margin-bottom:16px;">Регистрация</h1>
+
+  <!-- ROLE SELECT -->
+  <div class="role-select">
+    <label class="role-option" data-role="employee">
+      <span class="emoji-icon">👔</span>
+      <span>Като служител</span>
+    </label>
+
+    <label class="role-option" data-role="user">
+      <span class="emoji-icon">🐾</span>
+      <span>Като потребител</span>
+    </label>
+  </div>
+</main>
+
+<!-- POPUP форма за потребител -->
+<div id="userPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+  <div style="background:white; padding:24px; border-radius:12px; width:400px; max-width:90%; position:relative;">
+    <button id="closePopup" style="position:absolute; top:12px; right:12px; border:none; background:none; font-size:18px; cursor:pointer;">✖</button>
+    <h2>Регистрация като потребител</h2>
+    <form id="userForm" style="display:flex; flex-direction:column; gap:12px;">
+      <input type="text" name="name" placeholder="Име" required class="rounded-input">
+      <input type="email" name="email" placeholder="Имейл" required class="rounded-input">
+      <input type="tel" name="phone" placeholder="Телефон (+359…)" pattern="^\+359[0-9]{8,9}$" title="Телефонът трябва да започва с +359 и да съдържа 8–9 цифри след това." required class="rounded-input">
+
+      <div class="checkbox-group">
+        <div style="font-weight:600;margin-bottom:8px;">Животни, които имате</div>
+        <label class="checkbox-wrapper"><input type="checkbox" name="animals" value="dogs"> Кучета</label>
+        <label class="checkbox-wrapper"><input type="checkbox" name="animals" value="cats"> Котки</label>
+        <label class="checkbox-wrapper"><input type="checkbox" name="animals" value="rabbits"> Зайци</label>
+        <label class="checkbox-wrapper"><input type="checkbox" name="animals" value="turtles"> Костенурки</label>
+        <label class="checkbox-wrapper"><input type="checkbox" name="animals" value="fish"> Риби</label>
+        <label class="checkbox-wrapper"><input type="checkbox" name="animals" value="reptiles"> Змии </label>
+        <label class="checkbox-wrapper"><input type="checkbox" name="animals" value="reptiles"> Гущери </label>
+        <label class="checkbox-wrapper"><input type="checkbox" name="animals" value="fish"> Паяци </label>
+        <label class="checkbox-wrapper"><input type="checkbox" name="animals" value="other"> Други</label>
+      </div>
+
+      <button type="submit" class="btn">Регистрация</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 PetStay. Всички права запазени.
+</footer>
+
+<script>
+  // Директно действие при избор на роля
+  document.querySelectorAll('.role-option').forEach(option => {
+    option.addEventListener('click', () => {
+      const role = option.dataset.role;
+      if(role === 'employee'){
+        window.location.href = 'becomeSitter.html';
+      } else {
+        document.getElementById('userPopup').style.display = 'flex';
+      }
+    });
+  });
+
+  // Затваряне на popup
+  document.getElementById('closePopup').addEventListener('click', () => {
+    document.getElementById('userPopup').style.display = 'none';
+  });
+
+  // Изпращане на форма
+  document.getElementById('userForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = e.target.name.value.trim();
+    const email = e.target.email.value.trim();
+    const phone = e.target.phone.value.trim();
+    const animals = Array.from(e.target.animals).filter(a => a.checked).map(a => a.value);
+
+    if(!name || !email || !phone || animals.length === 0){
+      alert('Моля, попълнете всички полета.');
+      return;
+    }
+
+    alert(`Регистрацията е успешна!\nИме: ${name}\nИмейл: ${email}\nЖивотни: ${animals.join(', ')}\nТелефон: ${phone}`);
+    e.target.reset();
+    document.getElementById('userPopup').style.display = 'none';
+  });
+</script>
+
+</body>
+</html>

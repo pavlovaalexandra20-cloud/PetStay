@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Стани гледач — PetStay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    
+    <!-- Лого + Текст -->
+    <div class="brand">
+      <div class="logo">
+        <img src="logo PetStay.png" alt="PetStay Logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
+      </div>
+      <div>
+        <div style="font-weight:700">PetStay</div>
+        <div class="muted" style="font-size:13px">Грижи се за любимеца си с доверие</div>
+      </div>
+    </div>
+
+    <nav class="center-nav">
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="findSitter.html">Търси гледачи</a></li>
+        <li><a href="becomeSitter.html">Стани гледач</a></li>
+        <li><a href="information.html">Информация</a></li>
+      </ul>
+    </nav>
+
+    <div class="cta">
+      <a href="login.html" class="btn secondary">Вход</a>
+      <a href="registration.html" class="btn">Регистрация</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section">
+    <h2>Стани гледач</h2>
+    <p class="muted">Попълни формата по-долу, за да кандидатстваш като гледач.</p>
+
+    <form action="#" method="post" class="sitter-form">
+      <input type="text" name="first_name" placeholder="Име" required class="rounded-input">
+      <input type="text" name="last_name" placeholder="Фамилия" required class="rounded-input">
+      <input type="number" name="age" placeholder="Възраст" min="18" required class="rounded-input">
+      <input type="number" name="experience" placeholder="Години опит" min="0" required class="rounded-input">
+
+      <div class="checkbox-group">
+        <div style="font-weight:600;margin-bottom:8px;">За кои животни искаш да се грижиш?</div>
+
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="animals" value="dogs"> Кучета
+        </label>
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="animals" value="cats"> Котки
+        </label>
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="animals" value="rabbits"> Зайци
+        </label>
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="animals" value="turtles"> Костенурки
+        </label>
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="animals" value="fish"> Риби
+        </label>
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="animals" value="reptiles"> Змии
+        </label>
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="animals" value="reptiles"> Гущери
+        </label>
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="animals" value="fish"> Паяци
+        </label>
+        <label class="checkbox-wrapper">
+          <input type="checkbox" name="animals" value="other"> Други
+        </label>
+      </div>
+
+      <textarea name="allergies" placeholder="Алергии (ако имаш)" rows="3" class="rounded-input"></textarea>
+
+      <input type="email" name="email" placeholder="Имейл" required class="rounded-input">
+      <input type="tel"
+             name="phone"
+             placeholder="Телефон (+359…)"
+             pattern="^\+359[0-9]{8,9}$"
+             title="Телефонът трябва да започва с +359 и да съдържа 8–9 цифри след това."
+             required
+             class="rounded-input">
+
+      <button type="submit" class="btn" style="margin-top:15px;">Изпрати кандидатура</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 PetStay. Всички права запазени.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PetStay — Профил (Служител)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo"><img src="logo PetStay.png" alt="logo" style="width:100%;height:100%;object-fit:contain;border-radius:8px"></div>
+      <div><div style="font-weight:700">PetStay</div><div class="muted" style="font-size:13px">Грижи се за любимеца си с доверие</div></div>
+    </div>
+
+    <nav class="center-nav">
+      <ul>
+        <li><a href="employeeHome.html">Начало</a></li>
+        <li><a href="employeeProfile.html">Заявки</a></li>
+        <li><a href="employeeProfile.html#history">История</a></li>
+        <li><a href="employeeProfile.html#settings">Настройки</a></li>
+      </ul>
+    </nav>
+
+    <div class="cta" id="navRole"></div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section">
+    <h1>Добре дошъл, служителю!</h1>
+    <p class="muted">Тук ще виждаш новите поръчки и можеш да управляваш статуса им.</p>
+  </section>
+
+  <section class="section">
+    <h2>Последни известия</h2>
+    <div id="employeeNotifications"></div>
+  </section>
+
+  <section class="section" id="activeReservation">
+    <h2>Активна резервация</h2>
+    <div class="card muted" style="padding:12px">Избери известие, за да видиш детайли и да започнеш проследяване.</div>
+  </section>
+</main>
+
+<footer>© 2025 PetStay. Всички права запазени.</footer>
+
+<script src="new.js"></script>
+<script>
+  // set role if not set
+  if(!localStorage.getItem('petstay_role')){
+    localStorage.setItem('petstay_role','employee');
+  }
+  initNavRoleButtons();
+  initEmployeeProfilePage();
+
+  // if opened with reservationId param, show quick details
+  const qp = new URLSearchParams(window.location.search);
+  const resId = qp.get('reservationId');
+  if(resId){
+    // open tracking page or show details
+    const reservations = JSON.parse(localStorage.getItem('petstay_reservations') || '[]');
+    const r = reservations.find(x => String(x.id) === String(resId));
+    if(r){
+      document.getElementById('activeReservation').innerHTML = `
+        <div class="card" style="padding:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Резервация: ${r.date} — ${r.serviceType}</div>
+              <div class="muted">Клиент: ${r.userEmail}</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <a class="btn" href="tracking.html?reservationId=${r.id}">Започни проследяване</a>
+              <button class="btn secondary" onclick="document.location.reload()">Маркирай завършено</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  }
+</script>
+</body>
+</html>
